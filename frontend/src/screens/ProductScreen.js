@@ -32,7 +32,7 @@ const reducer = (state, action) => {
 const ProductScreen = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const { slug } = params;
+  const { id } = params;
 
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     product: [],
@@ -44,14 +44,14 @@ const ProductScreen = () => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get(`${apiUrl}/api/products/slug/${slug}`);
+        const result = await axios.get(`${apiUrl}/api/products/${id}`);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
       }
     };
     fetchData();
-  }, [slug]);
+  }, [id]);
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
 

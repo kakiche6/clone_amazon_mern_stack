@@ -74,7 +74,7 @@ function App() {
               <Route path="/" element={<HomeScreen />} />
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
-              <Route path="/product/:slug" element={<ProductScreen />} />
+              <Route path="/product/:id" element={<ProductScreen />} />
             </Routes>
           </Container>
         </main>
